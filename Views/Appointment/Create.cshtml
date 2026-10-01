@@ -1,0 +1,112 @@
+@model HospitalAppointmentMVC.Models.Appointment
+
+@{
+    ViewData["Title"] = "Book Appointment";
+}
+
+<div class="container mt-4">
+
+    <h1 class="text-center mb-4">
+        Book Hospital Appointment
+    </h1>
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <form asp-controller="Appointment"
+                  asp-action="Create"
+                  method="post">
+
+                <!-- Hidden Field -->
+                <input type="hidden"
+                       asp-for="DoctorId" />
+
+                <div class="mb-3">
+
+                    <label asp-for="PatientName"
+                           class="form-label">
+
+                        Patient Name
+
+                    </label>
+
+                    <input asp-for="PatientName"
+                           class="form-control"
+                           placeholder="Enter patient name" />
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="Specialization"
+                           class="form-label">
+
+                        Specialization
+
+                    </label>
+
+                    <select asp-for="Specialization"
+                            class="form-select">
+
+                        <option value="">
+                            -- Select Specialization --
+                        </option>
+
+                        <option value="Cardiologist">
+                            Cardiologist
+                        </option>
+
+                        <option value="Dermatologist">
+                            Dermatologist
+                        </option>
+
+                        <option value="Neurologist">
+                            Neurologist
+                        </option>
+
+                        <option value="Pediatrician">
+                            Pediatrician
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label asp-for="AppointmentDate"
+                           class="form-label">
+
+                        Appointment Date
+
+                    </label>
+
+                    <input asp-for="AppointmentDate"
+                           type="date"
+                           class="form-control" />
+
+                </div>
+
+                <button type="submit"
+                        class="btn btn-success">
+
+                    Book Appointment
+
+                </button>
+
+                <a asp-controller="Doctor"
+                   asp-action="Index"
+                   class="btn btn-secondary">
+
+                    Cancel
+
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

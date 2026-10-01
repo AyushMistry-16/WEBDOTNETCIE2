@@ -1,0 +1,59 @@
+@model HospitalAppointmentMVC.Models.Appointment
+
+@{
+    ViewData["Title"] = "Appointment Successful";
+}
+
+<div class="container mt-5">
+
+    <div class="card">
+
+        <div class="card-header bg-success text-white">
+
+            <h2>
+                Appointment Request Submitted
+            </h2>
+
+        </div>
+
+        <div class="card-body">
+
+            <p>
+                <strong>Patient Name:</strong>
+                @ViewBag.PatientName
+            </p>
+
+            <p>
+                <strong>Doctor ID:</strong>
+                @Model.DoctorId
+            </p>
+
+            <p>
+                <strong>Specialization:</strong>
+                @ViewBag.Specialization
+            </p>
+
+            <p>
+                <strong>Appointment Date:</strong>
+                @Model.AppointmentDate.ToShortDateString()
+            </p>
+
+            <div class="alert alert-success">
+
+                Appointment request submitted successfully.
+
+            </div>
+
+            <a asp-controller="Doctor"
+               asp-action="Index"
+               class="btn btn-primary">
+
+                Back to Doctors
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,91 @@
+﻿@model List<HospitalAppointmentMVC.Models.Doctor>
+
+@using HospitalAppointmentMVC.Extensions
+
+@{
+    ViewData["Title"] = "Doctors";
+}
+
+<div class="container mt-4">
+
+    <h1 class="text-center mb-4">
+        Hospital Appointment Management System
+    </h1>
+
+    <h2 class="mb-3">
+        Available Doctors
+    </h2>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Doctor ID</th>
+                <th>Doctor Name</th>
+                <th>Specialization</th>
+                <th>Experience</th>
+                <th>Consultation Fee</th>
+                <th>Total Charge</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var doctor in Model)
+            {
+                <tr>
+
+                    <td>
+                        @doctor.DoctorId
+                    </td>
+
+                    <td>
+                        @doctor.DoctorName
+                    </td>
+
+                    <td>
+                        @doctor.Specialization
+                    </td>
+
+                    <td>
+                        @doctor.Experience Years
+                    </td>
+
+                    <td>
+                        ₹@doctor.ConsultationFee
+                    </td>
+
+                    <td>
+                        ₹@doctor.CalculateTotalCharge()
+                    </td>
+
+                    <td>
+
+                        <a asp-controller="Doctor"
+                           asp-action="Details"
+                           asp-route-doctorId="@doctor.DoctorId"
+                           class="btn btn-primary">
+
+                            View Details
+
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <a asp-controller="Posts"
+       asp-action="Index"
+       class="btn btn-success">
+
+        View API Posts
+
+    </a>
+
+</div>

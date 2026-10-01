@@ -1,0 +1,53 @@
+@model List<HospitalAppointmentMVC.Models.Post>
+
+@{
+    ViewData["Title"] = "API Posts";
+}
+
+<div class="container mt-4">
+
+    <h1 class="text-center mb-4">
+        Posts From JSONPlaceholder API
+    </h1>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>Post ID</th>
+                <th>Title</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var post in Model)
+            {
+                <tr>
+
+                    <td>
+                        @post.Id
+                    </td>
+
+                    <td>
+                        @post.Title
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <a asp-controller="Doctor"
+       asp-action="Index"
+       class="btn btn-primary">
+
+        Back to Doctors
+
+    </a>
+
+</div>
